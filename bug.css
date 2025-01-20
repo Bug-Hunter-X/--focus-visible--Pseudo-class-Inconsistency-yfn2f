@@ -1,0 +1,1 @@
+The CSS rule `:focus-visible` pseudo-class is not working as expected.  I am trying to style the focus indicator of interactive elements only when the focus is actually visible to the user (not caused by scripts). However, the focus styles are applied in all cases, even when the element is programmatically focused using JavaScript.

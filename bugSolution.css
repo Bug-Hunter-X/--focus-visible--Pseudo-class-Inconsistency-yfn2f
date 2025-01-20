@@ -1,0 +1,26 @@
+The `:focus-visible` pseudo-class can be unreliable in certain browser versions and may require a fallback. A common strategy is to add a JavaScript check to determine if the focus is programmatically set, such as by checking if the `focus` event's target was triggered by a user interaction. 
+
+Here is a potential solution for JavaScript interaction: 
+
+```javascript
+  document.addEventListener('focusin', (event) => {
+    if (!event.isTrusted) { 
+      // Programmatically set focus, add a class to handle styling
+      event.target.classList.add('programmatically-focused');
+    }
+  });
+```
+
+Then, add styling in your CSS:
+
+```css
+  /*Existing styles*/
+  button:focus-visible {
+    outline: 2px solid blue;
+  }
+  button.programmatically-focused {
+    outline: none; /*Avoids visual focus when programmatically focused*/
+  }
+```
+
+This approach gives you more control, allowing specific styles for user-initiated and programmatic focus scenarios.
